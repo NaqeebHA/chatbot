@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -70,4 +70,135 @@ button.option-btn {
 
 button.option-btn:hover {
     background-color: #ffc107;
+} */
+
+/* Custom Yellow Theme */
+body {
+    background-color: #fffbea;
+}
+.navbar, .footer {
+    background-color: #ffeb3b; /* Yellow */
+}
+.footer {
+    text-align: center;
+    padding: 15px 0;
+}
+/* Popup Chatbox */
+.chat-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    border-radius: 15px;  /* Rounded corners for chat popup */
+    overflow: hidden;
+}
+.chat-container {
+    max-width: 400px; /* Widen the chat container */
+    background-color: #fff;
+    padding: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.chat-header, .open-button {
+    background-color: #ffeb3b; /* Yellow */
+    color: black;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+.chat-header img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Make profile picture round */
+    margin-right: 10px;
+}
+.open-button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Make profile picture round */
+    margin-right: 10px;
+}
+.chat-header h6 {
+    margin: 0;
+    font-size: 1rem;
+}
+.chat-header .status {
+    font-size: 0.875rem;
+}
+.open-button h6 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+.open-button {
+    /* background-color: #ffeb3b; */
+    color: black;
+    /* padding: 10px 15px; */
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50px;
+    z-index: 9;
+}
+.open-button:hover {
+    background-color: #fbc02d;
+}
+.option-btn {
+    background-color: #ffeb3b;
+    color: black; /* Black text for yellow buttons */
+    padding: 5px 10px;  /* Smaller button padding */
+    font-size: 0.875rem; /* Smaller font size */
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.option-btn:hover {
+    background-color: #fbc02d;
+}
+.option-btn:disabled {
+    background-color: gray;
+}
+#chat-window {
+    height: 250px;  /* Slightly larger chat window */
+    overflow-y: auto;
+    background: #f7f7f7;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 0.875rem; /* Smaller font size for chat window */
+}
+/* User chat bubble on the right */
+.user-message {
+    background-color: #ffeb3b; /* Yellow background for user chat */
+    color: black; /* Black text for user chat */
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    display: inline-block;
+    max-width: 80%;
+    float: right; /* Align user chat to the right */
+    clear: both;
+}
+/* Bot chat bubble on the left */
+.bot-message {
+    background-color: #fff; /* White background for bot chat */
+    color: black; /* Black text for bot chat */
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    display: inline-block;
+    max-width: 80%;
+    float: left; /* Align bot chat to the left */
+    clear: both;
+}
+.text-end .user-message {
+    background-color: #ffeb3b; /* Yellow for user chat bubble */
+}
+.text-start .bot-message {
+    background-color: #fff; /* White for bot reply */
 }

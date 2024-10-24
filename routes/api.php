@@ -19,8 +19,8 @@ use App\Http\Controllers\QuestionController;
 //     return $request->user();
 // });
 
-// Route::Group(['prefix' => 'admin'], function ()
-// {
+Route::middleware(['web', 'auth:web'])->group(function () 
+{
     Route::Group(['prefix' => 'questions'], function ()
     {
         Route::get('starter',[QuestionController::class, 'getStarterQuestions']);
@@ -46,5 +46,5 @@ use App\Http\Controllers\QuestionController;
         Route::put('update', 'DebtController@update');
         Route::delete('delete/{id}', 'DebtController@delete');
     });
-// });
+});
 

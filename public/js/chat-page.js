@@ -5,22 +5,32 @@ document.addEventListener("DOMContentLoaded", () => {
     function getStarterQuestions(){
         $.ajax({
             type: "GET",
-            url: "api/questions/starter",
+            url: "questions/starter",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             success: function(data){
                 processNewQuestions(data);
             },
-            error: function(xhr, status, error){}
+            error: function(xhr) {
+                console.error(xhr.responseText); // Check for unauthorized response
+            }
         })
     }
 
     function getFollowupQuestions(id){
         $.ajax({
             type: "GET",
-            url: `api/questions/followup/${id}`,
+            url: `questions/followup/${id}`,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             success: function(data){
                 processNewQuestions(data);
             },
-            error: function(xhr, status, error){}
+            error: function(xhr) {
+                console.error(xhr.responseText); // Check for unauthorized response
+            }
         })
     }
 
@@ -39,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function sendMessage(questionAndAnswer) {
-        $("button").attr('disabled', 'true');
+        $(".option-btn").attr('disabled', 'true');
 
         const userMessage = $("<div>");
         userMessage.addClass("message user-message");
@@ -60,13 +70,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Scroll to the bottom of the chat window
             $("#chat-window").scrollTop($("#chat-window").prop('scrollHeight'));
-        }, 1000);
+        }, 500);
     }
 
     // Bot response logic based on the question asked
     function generateBotResponse(questionAndAnswer) {
         return questionAndAnswer['answer'] || "I'm not sure how to respond to that.";
     }
+
+    // Open chat popup
+    function openChat() {
+        document.getElementById("chatPopup").style.display = "block";
+    }
+
+    $('.open-button').on('click', function() {
+        openChat();
+    })
+
+    // Close chat popup
+    function closeChat() {
+        document.getElementById("chatPopup").style.display = "none";
+    }
+
+    // Close chat when clicking outside the chat container
+    document.addEventListener('click', function(event) {
+        const chatPopup = document.getElementById('chatPopup');
+        const chatContainer = document.getElementById('chatContainer');
+        const openButton = document.querySelector('.open-button');
+
+        if (!chatContainer.contains(event.target) && !openButton.contains(event.target)) {
+            chatPopup.style.display = 'none';
+        }
+    });
 
     getStarterQuestions();
 });

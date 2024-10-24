@@ -9,6 +9,8 @@ class Debtor extends Model
 {
     use HasFactory;
 
+    protected $table = 'debtor';
+
     public function debts()
     {
         return $this->hasMany(Debt::class);
