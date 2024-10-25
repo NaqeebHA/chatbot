@@ -1,11 +1,4 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yellow Theme Page</title>
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -29,31 +22,8 @@
     
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">YellowTheme</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+    @include('layouts.page-with-chat-navigation')
 
     <!-- Main Content -->
     <div class="container mt-5">
@@ -61,10 +31,10 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer bg-warning">
-        <p>&copy; 2024 YellowTheme. All Rights Reserved.</p>
+    <div class="footer">
+        <p>&copy; 2024 Debt Chatbot. All Rights Reserved.</p>
     </div>
-
+@auth
     <!-- Popup Chat Button -->
     <button class="open-button">
         <img src="{{asset('storage/img/bot.png')}}" alt="User Profile">
@@ -92,7 +62,7 @@
             </div>
         </div>
     </div>
-
+@endauth
     <!-- Include compiled JS -->
     <script src="{{ mix('js/app.js') }}"></script>
 </body>

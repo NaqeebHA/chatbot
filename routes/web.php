@@ -14,20 +14,20 @@ use App\Http\Controllers\QuestionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/chat', function () {
-    return view('chat-page');
+// Route::get('/chat', function () {
+//     return view('chat-page');
+// })->middleware(['auth'])->name('index');
+
+Route::get('/', function () {
+    return view('page-with-chat');
 })->middleware(['auth'])->name('index');
 
-Route::get('/page-with-chat', function () {
-    return view('page-with-chat');
-})->middleware(['auth'])->name('page-with-chat');
-
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('page-with-chat');
 })->middleware(['auth'])->name('dashboard');
 
 

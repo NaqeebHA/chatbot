@@ -8,16 +8,16 @@
         </div>
 
         <!-- Navigation Links -->
-        {{-- <nav class="d-flex">
+        <nav class="d-flex">
             <a href="/" class="nav-link text-dark">Home</a>
             <a href="/about" class="nav-link text-dark">About</a>
             <a href="/services" class="nav-link text-dark">Services</a>
             <a href="/contact" class="nav-link text-dark">Contact</a>
-        </nav> --}}
+        </nav>
 
         <!-- Action Button -->
-        {{-- <div class="header-action">
+        <div class="header-action">
             <a href="/login" class="btn btn-outline-dark">Login</a>
-        </div> --}}
+        </div>
     </div>
 </div>
